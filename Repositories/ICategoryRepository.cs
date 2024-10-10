@@ -4,17 +4,17 @@ namespace ProductsAPI.Repositories;
 public interface ICategoryRepository
 {
     //Get all categories
-    Task<IEnumerable<Category>> GetAllCategories();
+    Task<IEnumerable<Category>> GetAll();
 
     //Get category by id
-    Task<Category> GetCategoryById(int id);
+    Task<Category> GetById(int id);
 
     //Create a new category
-    Task CreateCategory(Category category);
+    Task Create(Category category);
 
     //Update an existing category
-    Task UpdateCategory(Category category);
+    Task Update(Category category);
 
     //Delete a category
-    Task DeleteCategory(int id);
+    Task Delete(int id);
 }
