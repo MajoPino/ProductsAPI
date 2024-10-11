@@ -61,21 +61,8 @@ namespace ProductsAPI.Services
 
         public async Task<Category> GetById(int id)
         {
-            try
-            {
                 var category = await _context.Categories.FindAsync(id);
-
-                if (category == null)
-                {
-                    throw new ArgumentNullException(nameof(category), "Category not found");
-                }
-
                 return category;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Unexpected error retrieving the category", ex);
-            }
         }
 
         public async Task Update(Category category)

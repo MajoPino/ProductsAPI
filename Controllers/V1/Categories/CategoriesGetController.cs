@@ -7,7 +7,7 @@ namespace ProductsAPI.Controllers.V1.Categories;
 [Route("api/v1/categories")]
 public class CategoriesGetController : CategoriesController
 {
-    public CategoriesGetController(ICategoryRepository categoryRepository) : base(categoryRepository){}
+    public CategoriesGetController(ICategoryRepository categoryRepository) : base(categoryRepository) { }
 
     //GET: /api/v1/categories
 
@@ -36,19 +36,17 @@ public class CategoriesGetController : CategoriesController
         try
         {
             var category = await _categoryRepository.GetById(id);
+
             if (category == null)
             {
-                return NotFound($"Category with id {id} not found.");
+                return NotFound($"Category with id {id} is not found.");
             }
+
             return Ok(category);
         }
-        catch (ArgumentNullException ex)
+        catch (Exception ex)
         {
-            return NotFound(ex.Message);
-        }
-        catch (Exception)
-        {
-            return StatusCode(500, "An unexpected error occurred.");
+            return StatusCode(500, $"An unexpected error occurred. Exception: {ex.Message}");
         }
     }
 }
