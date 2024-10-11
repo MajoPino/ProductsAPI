@@ -26,6 +26,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 
 builder.Services.AddScoped<ICategoryRepository, CategoryServices>();
+builder.Services.AddScoped<IProductRepository, ProductServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
