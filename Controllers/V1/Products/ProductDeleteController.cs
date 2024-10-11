@@ -6,7 +6,7 @@ namespace ProductsAPI.Controllers.V1.Products;
 
 [ApiController]
 [Route("api/v1/products")]
-[Tags("Categories")]
+[Tags("Products")]
 public class ProductDeleteController : ProductsController
 {
     public ProductDeleteController(IProductRepository productRepository) : base(productRepository){}
@@ -14,8 +14,8 @@ public class ProductDeleteController : ProductsController
     //DELETE: /api/v1/products/{id}
     [HttpDelete("{id}")]
     [SwaggerOperation(
-        Summary = "Delete a category",
-        Description = "Removes a category from the system by its ID"
+        Summary = "Delete a product",
+        Description = "Removes a product from the system by its ID"
     )]
     public async Task<IActionResult> Delete(int id)
     {

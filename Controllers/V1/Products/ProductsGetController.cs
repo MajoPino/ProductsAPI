@@ -6,7 +6,7 @@ namespace ProductsAPI.Controllers.V1.Products;
 
 [ApiController]
 [Route("api/v1/products")]
-[Tags("Categories")]
+[Tags("Products")]
 public class ProductsGetController : ProductsController
 {
     public ProductsGetController(IProductRepository productRepository) : base(productRepository){}
@@ -15,8 +15,8 @@ public class ProductsGetController : ProductsController
 
     [HttpGet]
     [SwaggerOperation(
-        Summary = "Get all categories",
-        Description = "Returns a list of all the categories in the system."
+        Summary = "Get all products",
+        Description = "Returns a list of all the products in the system."
     )]
     public async Task<IActionResult> GetAllProducts()
     {
@@ -38,8 +38,8 @@ public class ProductsGetController : ProductsController
     //GET: api/v1/products/{id}
     [HttpGet("{id}")]
     [SwaggerOperation(
-        Summary = "Search a category with its ID",
-        Description = "Returns a specific category from the system by giving its ID"
+        Summary = "Search a product with its ID",
+        Description = "Returns a specific product from the system by giving its ID"
     )]
     public async Task<IActionResult> GetProductById(int id)
     {

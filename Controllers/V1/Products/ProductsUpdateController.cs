@@ -7,7 +7,7 @@ namespace ProductsAPI.Controllers.V1.Products;
 
 [ApiController]
 [Route("api/v1/products")]
-[Tags("Categories")]
+[Tags("Products")]
 public class ProductsUpdateController : ProductsController
 {
     public ProductsUpdateController(IProductRepository productRepository) : base(productRepository){}
@@ -15,8 +15,8 @@ public class ProductsUpdateController : ProductsController
     //PUT: /api/v1/products/{id}
     [HttpPut("{id}")]
     [SwaggerOperation(
-        Summary = "Update a category",
-        Description = "Modifies an existing category in the system by its ID"
+        Summary = "Update a product",
+        Description = "Modifies an existing product in the system by its ID"
     )]
     public async Task<IActionResult> Update(int id, [FromBody] ProductDTO productDTO)
     {
@@ -28,7 +28,7 @@ public class ProductsUpdateController : ProductsController
         var existingProduct = await _productRepository.GetById(id);
         if (existingProduct == null)
         {
-            return NotFound($"Category with id {id} not found.");
+            return NotFound($"Product with id {id} not found.");
         }
 
         existingProduct.Name = productDTO.Name;

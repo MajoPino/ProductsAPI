@@ -8,7 +8,7 @@ namespace ProductsAPI.Controllers.V1.Products;
 
 [ApiController]
 [Route("api/v1/products")]
-[Tags("Categories")]
+[Tags("Products")]
 public class ProductsCreateController : ProductsController
 {
     public ProductsCreateController(IProductRepository productRepository) : base(productRepository){}
@@ -16,8 +16,8 @@ public class ProductsCreateController : ProductsController
     //POST: /api/v1/products
     [HttpPost]
     [SwaggerOperation(
-        Summary = "Create a new category",
-        Description = "Adds a new category to the system."
+        Summary = "Create a new product",
+        Description = "Adds a new product to the system."
     )]
     public async Task<IActionResult> Create([FromBody] ProductDTO productDTO)
     {
