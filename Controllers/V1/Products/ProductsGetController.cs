@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using ProductsAPI.Repositories;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ProductsAPI.Controllers.V1.Products;
 
 [ApiController]
 [Route("api/v1/products")]
+[Tags("Categories")]
 public class ProductsGetController : ProductsController
 {
     public ProductsGetController(IProductRepository productRepository) : base(productRepository){}
@@ -12,6 +14,10 @@ public class ProductsGetController : ProductsController
     //GET: /api/v1/products
 
     [HttpGet]
+    [SwaggerOperation(
+        Summary = "Get all categories",
+        Description = "Returns a list of all the categories in the system."
+    )]
     public async Task<IActionResult> GetAllProducts()
     {
         try
@@ -31,6 +37,10 @@ public class ProductsGetController : ProductsController
 
     //GET: api/v1/products/{id}
     [HttpGet("{id}")]
+    [SwaggerOperation(
+        Summary = "Search a category with its ID",
+        Description = "Returns a specific category from the system by giving its ID"
+    )]
     public async Task<IActionResult> GetProductById(int id)
     {
         try
