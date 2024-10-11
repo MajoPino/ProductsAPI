@@ -33,9 +33,6 @@ public class Product
     [Required]
     public int CategoryId { get; set;}
 
-    //Navigation Properties for the foreign key
-    public virtual required Category Category {get; set;}
-
     //Empty constructor
     public Product(){}
 

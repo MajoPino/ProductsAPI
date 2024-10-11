@@ -13,5 +13,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         CategorySeeder.Seed(modelBuilder);
+        ProductSeeder.Seed(modelBuilder);
     }
 }
